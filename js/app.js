@@ -16,6 +16,9 @@ const totalPrice = document.getElementById('total-price');
 const total = document.getElementById('total');
 // get input field 
 const promoInput = document.getElementById('promo-input');
+// notify div 
+const success = document.getElementById('success');
+const wrong = document.getElementById('wrong');
 
 // memory 
 function memory(size) {
