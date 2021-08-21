@@ -64,14 +64,22 @@ function calculateExtraCost() {
     
 }
 // apply coupon
-function coupon(code) {
-    if (code == 'stevekaku') {
+function coupon() {
+    if (promoInput.value == 'stevekaku') {
         const lastTotal = parseInt(total.innerText);
         const appliedCoupon = lastTotal * 0.2;
         const grandTotal = lastTotal - appliedCoupon;
         total.innerText = grandTotal;
+        apply.disabled = true;
+        
         promoInput.value = '';
-
+        success.style.display = 'block';
+        wrong.style.display = 'none';
+    }
+    else {
+        success.style.display = 'none';
+        wrong.style.display = 'block';
+        promoInput.value = '';
     }
 }
 
@@ -79,19 +87,12 @@ function coupon(code) {
 memory8GB.addEventListener('click', function () {
     const memoryItem = memory('8gb');
     document.getElementById('memory-cost').innerText = memoryItem;
-    // updateTotal();
     const cost = calculateExtraCost();
     
-    
-    
-    
-    // const memoryCost = memory('8gb');
-    // const memorycostNumbered = parseInt(memoryCost);
 })
 memory16GB.addEventListener('click', function () {
     const memoryItem = memory('16gb');
     document.getElementById('memory-cost').innerText = memoryItem;
-    // updateTotal();
     const cost = calculateExtraCost();
     
 })
@@ -122,5 +123,6 @@ expressDelivery.addEventListener('click', function () {
 })
 
 apply.addEventListener('click', function () {
-    coupon('stevekaku');
+    
+    coupon();
 })
