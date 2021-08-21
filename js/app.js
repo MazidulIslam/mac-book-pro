@@ -9,6 +9,7 @@ const expressDelivery = document.getElementById('express-delivery');
 const apply = document.getElementById('apply');
 
 // get charges field 
+const bestPrice = document.getElementById('best-price');
 const memoryCost = document.getElementById('memory-cost');
 const storageCost = document.getElementById('storage-cost');
 const deliveryCost = document.getElementById('delivery-cost');
@@ -61,7 +62,7 @@ function calculateExtraCost() {
     const storageCost = parseInt(document.getElementById('storage-cost').innerText);
     const deliveryCost = parseInt(document.getElementById('delivery-cost').innerText);
     const extraTotal = memoryCost + storageCost + deliveryCost;
-    const subTotal = extraTotal + 1299;
+    const subTotal = extraTotal + parseInt(bestPrice.innerText);
     document.getElementById('total-price').innerText = subTotal;
     document.getElementById('total').innerText = subTotal;
     
